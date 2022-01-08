@@ -3,4 +3,8 @@ public struct Misuri {
 
     public init() {
     }
+    
+    public func testingPackageWithGreeting() {
+        print("Its works!")
+    }
 }
