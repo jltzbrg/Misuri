@@ -5,7 +5,11 @@ public struct MTimerProgressView: View {
     var maxProgress: Int
     var colors: [Color]
     
-    public init() {}
+    public init(progress: Int, maxProgress: Int, colors: [Color]) {
+        self.progress = progress
+        self.maxProgress = maxProgress
+        self.colors = colors
+    }
     
     public var body: some View {
         ZStack {
