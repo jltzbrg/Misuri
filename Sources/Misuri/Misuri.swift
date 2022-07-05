@@ -1,17 +1,17 @@
 import SwiftUI
 
-public struct MTimerProgressView: View {
+private struct MTimerProgressView: ViewModifier {
     var progress: Int
     var maxProgress: Int
     var colors: [Color]
     
-    public init(progress: Int, maxProgress: Int, colors: [Color]) {
+    init(progress: Int, maxProgress: Int, colors: [Color]) {
         self.progress = progress
         self.maxProgress = maxProgress
         self.colors = colors
     }
     
-    public var body: some View {
+    fileprivate func body(content: Content) -> some View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 15)
@@ -24,8 +24,15 @@ public struct MTimerProgressView: View {
                 .rotationEffect(Angle(degrees: 270))
                 .animation(Animation.linear(duration: Double(maxProgress)), value: progress)
             
-            Text(String(progress))
+            content
         }.frame(width: 150, height: 150)
     }
 }
+
+extension View {
+    public func mTimerProgressView(progress: Int, maxProgress: Int, colors: [Color]) -> some View {
+        self.modifier(MTimerProgressView(progress: progress, maxProgress: maxProgress, colors: colors))
+    }
+}
+
 
