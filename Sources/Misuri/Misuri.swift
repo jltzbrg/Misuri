@@ -1,9 +1,9 @@
 import SwiftUI
 
 public struct MTimerProgressView: View {
-    var progress: Int
-    var maxProgress: Int
-    var colors: [Color]
+    public var progress: Int
+    public var maxProgress: Int
+    public var colors: [Color]
     
     public var body: some View {
         ZStack {
