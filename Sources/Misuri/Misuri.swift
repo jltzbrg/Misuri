@@ -1,6 +1,6 @@
 import SwiftUI
 
-private struct MTimerProgressView: ViewModifier {
+private struct MRingProgressView: ViewModifier {
     var progress: Int
     var maxProgress: Int
     var colors: [Color]
@@ -30,8 +30,8 @@ private struct MTimerProgressView: ViewModifier {
 }
 
 extension View {
-    public func mTimerProgressView(progress: Int, maxProgress: Int, colors: [Color]) -> some View {
-        self.modifier(MTimerProgressView(progress: progress, maxProgress: maxProgress, colors: colors))
+    public func ringProgressView(progress: Int, maxProgress: Int, colors: [Color]) -> some View {
+        self.modifier(MRingProgressView(progress: progress, maxProgress: maxProgress, colors: colors))
     }
 }
 
