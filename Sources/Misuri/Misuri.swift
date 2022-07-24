@@ -33,18 +33,30 @@ private struct MRingProgressView: ViewModifier {
 
 //MARK: - MButtonTextLabelShape
 private struct MButtonTextLabelShape: ViewModifier {
-    let buttonText: String
-    let fontSize: CGFloat
-    let fontWeight: Font.Weight?
-    let fontDesign: Font.Design?
-    let textColor: Color ?? Color.red
-    let buttonWidth: CGFloat
-    let buttonHeight: CGFloat
-    let buttonBackgroundColor: Color
-    let buttonCornerRadius: CGFloat
+    var fontSize: CGFloat
+    var fontWeight: Font.Weight
+    var fontDesign: Font.Design
+    var textColor: Color
+    var buttonWidth: CGFloat
+    var buttonHeight: CGFloat
+    var buttonBackgroundColor: Color
+    var buttonCornerRadius: CGFloat
+    
+    init(fontSize: CGFloat, fontWeight: Font.Weight, fontDesign: Font.Design, textColor: Color, buttonWidth: CGFloat, buttonHeight: CGFloat, buttonBackgroundColor: Color, buttonCornerRadius: CGFloat) {
+        
+        self.fontSize = fontSize
+        self.fontWeight = fontWeight
+        self.fontDesign = fontDesign
+        self.textColor = textColor
+        self.buttonWidth = buttonWidth
+        self.buttonHeight = buttonHeight
+        self.buttonBackgroundColor = buttonBackgroundColor
+        self.buttonCornerRadius = buttonCornerRadius
+        
+    }
     
     fileprivate func body(content:  Content) -> some View {
-        Text(buttonText)
+        content
             .font(.system(size: fontSize, weight: fontWeight, design: .rounded))
             .foregroundColor(textColor)
             .frame(width: buttonWidth, height: buttonHeight, alignment: .center)
@@ -60,9 +72,10 @@ extension View {
         self.modifier(MRingProgressView(progress: progress, maxProgress: maxProgress, colors: colors))
     }
     
-    public func buttonTextLabelShapeView(text:String, size: CGFloat, weight: Font.Weight?, design: Font.Design?, textColor: Color, width: CGFloat, height: CGFloat, backgroundColor: Color, radius: CGFloat) -> some View {
-        self.modifier(MButtonTextLabelShape(buttonText: text, fontSize: size, fontWeight: weight, fontDesign: design, textColor: textColor, buttonWidth: width, buttonHeight: height, buttonBackgroundColor: backgroundColor, buttonCornerRadius: radius))
+    public func buttonTextLabelShapeView(size: CGFloat, weight: Font.Weight, design: Font.Design, textColor: Color, width: CGFloat, height: CGFloat, backgroundColor: Color, radius: CGFloat) -> some View {
+        self.modifier(MButtonTextLabelShape(fontSize: size, fontWeight: weight, fontDesign: design, textColor: textColor, buttonWidth: width, buttonHeight: height, buttonBackgroundColor: backgroundColor, buttonCornerRadius: radius))
     }
+    
 }
 
 
