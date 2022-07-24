@@ -6,6 +6,10 @@ To install this package, import `GITHUB URL` in Xcode using [Swift Package Manag
 
 ## Usage example 
 
+=======================================================================
+
+### .ringProgressView [Modifier]
+
 ```swift
 ...
 import Misuri
@@ -24,4 +28,26 @@ struct ContentView: View {
     }
 }
 
+```
+
+### .buttonTextLabelShapeView [Modifier]
+
+```swift
+...
+import Misuri
+
+struct ContentView: View {
+    
+    var body: some View {
+        
+        VStack {
+            ...
+            Button {
+                // Do Something 
+                } label: {
+                    Text("Misuri Button Shape").buttonTextLabelShapeView(size: 16, weight: .bold, design: .rounded, textColor: Color.pink, width: 315, height: 60, backgroundColor: Color.purple, radius: 6)
+                }
+        }
+    }
+}
 ```

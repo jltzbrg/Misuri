@@ -55,7 +55,7 @@ private struct MButtonTextLabelShape: ViewModifier {
         
     }
     
-    fileprivate func body(content:  Content) -> some View {
+    fileprivate func body(content: Content) -> some View {
         content
             .font(.system(size: fontSize, weight: fontWeight, design: .rounded))
             .foregroundColor(textColor)
