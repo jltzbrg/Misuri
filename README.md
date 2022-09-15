@@ -45,7 +45,14 @@ struct ContentView: View {
             Button {
                 // Do Something 
                 } label: {
-                    Text("Misuri Button Shape").buttonTextLabelShapeView(size: 16, weight: .bold, design: .rounded, textColor: Color.pink, width: 315, height: 60, backgroundColor: Color.purple, radius: 6)
+                    Text("Misuri Button Shape").buttonTextLabelShapeView(size: 16, 
+                    weight: .bold, 
+                    design: .rounded, 
+                    textColor: Color.pink, 
+                    width: 315, 
+                    height: 60, 
+                    backgroundColor: Color.purple, 
+                    radius: 6)
                 }
         }
     }
